@@ -7,6 +7,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  padding-bottom: 10px;
 }
 
 /* TABLE CONTAINERS */
@@ -196,22 +197,23 @@
 .table-grid::-webkit-scrollbar {
   margin-top: 5px;
   width: 6px;
-  height: 4px;
+  height: 6px;
   border-radius: 10px;
+
 }
 
 .table-grid::-webkit-scrollbar-thumb {
   background-color: #324C3D;
   outline: none;
   box-shadow: none;
-  height: 4px;
+  height: 6px;
   width: 6px;
   border-radius: 10px;
 }
 
 .table-grid::-webkit-scrollbar-track {
   width: 6px;
-  height: 4px;
+  height: 6px;
   border-radius: 10px;
   background-color: white;
 }
