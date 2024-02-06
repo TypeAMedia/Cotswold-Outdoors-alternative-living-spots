@@ -1,0 +1,36 @@
+Island,Country,Country Code,Continent,Number of michelin star restaurants,4.5* restaurants and above,restaurants rank,Number of private jet charters,jet rank,5* accommodation,accommodation rank,Yacht clubs,Yacht rank,Luxury spas,spas rank,Annual amount of sunshine,sunshine Rank,overall rank,FINAL RANK
+Mykonos,Greece,GR,Europe,0,12,11,20,1,87,7,20,1,17,4,"3,103",3,27,1
+Crete,Greece,GR,Europe,480,16,5,20,1,170,3,14,16,17,4,"2,786",17,46,2
+Cyprus,Cyprus,CY,Europe,0,16,5,4,27,131,4,19,8,16,6,"3,362",2,52,3
+Santorini,Greece,GR,Europe,0,18,3,16,10,93,6,20,1,18,1,"2,465",32,53,4
+Dominican Republic,Dominican Republic,DO,North America,0,12,11,3,29,172,2,20,1,16,6,"3,051",5,54,4
+Corfu,Greece,GR,Europe,0,14,9,20,1,30,16,19,9,18,1,"2,538",28,64,6
+Cayman Islands,Cayman Islands,KY,North America,0,20,1,20,1,4,31,11,19,16,6,"2,847",13,71,7
+Malta,Malta,MT,Europe,34,15,8,16,10,18,19,20,1,8,30,"3,055",4,72,8
+Maldives,Maldives,MV,Asia,0,14,9,13,17,129,5,0,27,18,1,"2,770",18,77,8
+St. Lucia,St. Lucia,LC,North America,0,12,11,20,1,14,22,4,26,15,12,"2,890",11,83,10
+Bahamas,Bahamas,BS,North America,0,2,36,20,1,10,24,19,10,16,6,"2,878",12,89,11
+Aruba,Aruba,AW,North America,0,12,11,15,16,8,26,20,1,8,30,"2,920",8,92,12
+Hawaii,United States,US,North America,0,12,11,1,34,41,12,14,17,14,13,"3,038",6,93,13
+Bali,Indonesia,ID,Asia,0,19,2,2,31,560,1,20,1,3,34,"2,672",24,93,13
+British Virgin Islands,British Virgin Islands,VG,North America,0,16,5,20,1,2,35,0,36,12,21,"3,842",1,99,15
+Mauritius,Mauritius,MU,Africa,0,8,26,11,21,62,8,18,11,10,26,"2,901",9,101,16
+Hvar,Croatia,HR,Europe,5,18,3,12,18,9,25,16,13,9,29,"2,631",25,113,17
+Bermuda,Bermuda,BM,North America,0,10,17,16,10,4,31,16,14,14,13,"2,497",31,116,18
+Ibiza,Spain,ES,Europe,162,10,17,0,37,37,13,20,1,8,30,"2,755",20,118,19
+Phuket,Thailand,TH,Asia,57,9,22,20,1,26,17,17,12,4,33,"2,100",35,120,20
+St. Kitts,the Federation of Saint Kitts and Nevis.,KNA,North America,0,8,26,20,1,2,35,9,24,14,13,"2,701",22,121,21
+Seychelles,Seychelles,SC,Africa,0,3,34,16,10,31,14,9,21,14,13,"2,500",29,121,21
+Fiji,Fiji,FJ,Oceania,0,10,17,3,29,25,18,15,15,11,22,"2,540",27,128,23
+Sicily,Italy,IT,Europe,100,10,17,12,18,52,10,0,29,11,22,"2,433",33,129,24
+Grenada,Grenada,GD,North America,10,6,29,7,24,6,29,0,32,16,6,"2,892",10,130,25
+Turks & Caicos,Turks & Caicos,TC,North America,0,10,17,6,25,16,20,0,30,10,26,"2,801",15,133,26
+Puerto Rico,Puerto Rico,PR,North America,0,9,22,2,31,11,23,9,23,11,22,"2,812",14,135,27
+Sardinia,Italy,IT,Europe,52,6,29,1,34,50,11,12,18,11,22,"2,730",21,135,27
+Zanzibar,Tanzania,TZ,Africa,0,4,33,1,34,54,9,0,28,13,18,"2,787",16,138,29
+The Azores,Portugal,PT,Europe,0,11,16,16,10,7,28,0,31,13,18,"1,700",37,140,30
+St. Barts,St. Barts,BL,North America,12,9,22,2,31,8,26,8,25,13,18,"2,767",19,141,31
+Capri,Italy,IT,Europe,41,6,29,9,23,16,20,10,20,0,37,"2,420",34,163,32
+Tahiti,French Polynesia,PF,Oceania,0,6,29,4,27,1,37,0,37,1,36,"3,000",7,173,33
+Galapagos Islands,Ecuador,EC,South America,2,9,22,5,26,4,31,0,35,10,26,"1,970",36,176,34
+Bora Bora,French Polynesia,PF,Oceania,0,0,37,11,21,5,30,0,33,3,34,"2,697",23,178,35

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;&display=swap" rel="stylesheet">
+  <link href="./styles/choices.css" rel="stylesheet" />
+  <link href="./styles/table.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./scripts/tailwind.config.js"></script>
+  <script src="./scripts/choices.min.js"></script>
+  <script src="./scripts/d3.min.js"></script>
+</head>
+
+<body>
+  <div class="mx-auto max-w-[918px]">
+
+    <!-- banner -->
+    <div class="relative">
+      <div class="p-0.5 bg-orange"></div>
+      <div class="w-full">
+        <img src="./images/banner.png" class="w-full sm:hidden" />
+        <img src="./images/banner-desktop.png" class="w-full hidden sm:block" />
+      </div>
+
+
+      <div class="absolute top-0 left-0 w-full">
+        <div class="max-w-[420px] mx-auto">
+          <div class="flex flex-col items-center">
+            <div class="py-9">
+              <img src="./images/logo.png" />
+            </div>
+            <div class="px-4 w-full">
+              <h3 class="text-[36px] leading-[38px] text-center uppercase text-white font-cormorant">
+                The world’s<br /> most luxurious <br />islands
+              </h3>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 px-5 py-5 w-full">
+        <div class="max-w-[420px] mx-auto">
+          <select id="islands_sel"></select>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="bg-[#FFF9F3]">
+
+      <div class="max-w-[420px] mx-auto">
+        <div class="p-5 sm:px-0">
+          <p class="m-0 font-light text-base">
+            We considered the number of 4.5+ star restaurants, 5 star accommodation, 4+ star spas, private jet charters,
+            yacht clubs and annual hours of sunshine to rank destinations by how luxurious they are.
+          </p>
+        </div>
+
+        <div class="px-5 sm:px-0">
+          <div class="flex justify-between mb-1">
+            <label class="font-light">Lower score</label>
+            <label class="font-light">Higher score</label>
+          </div>
+          <div class="flex w-full">
+            <div class="w-1/4 bg-blue p-1.5 rounded-l"></div>
+            <div class="w-1/4 bg-lightblue p-1.5"></div>
+            <div class="w-1/4 bg-lightorange p-1.5"></div>
+            <div class="w-1/4 bg-orange p-1.5 rounded-r"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full px-5 md:px-8 mt-5">
+        <div id="table" class="mx-auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./scripts/utils.js"></script>
+  <script src="./scripts/table.config.js"></script>
+  <script src="./scripts/DataStore.js"></script>
+  <script src="./scripts/table.js"></script>
+  <script src="./scripts/app.js"></script>
+</body>
+
+</html>

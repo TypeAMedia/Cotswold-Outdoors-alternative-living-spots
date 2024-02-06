@@ -1,0 +1,253 @@
+:root {
+  --dark-blue: #183147;
+  --red: #d8504a;
+  --dark-green: #324C3D;
+  --choices-border-london: #87A897;
+
+  --swiper-navigation-size: 20px;
+  --swiper-navigation-color: #E5AA20;
+  --swiper-pagination-color: #E5AA20;
+  --swiper-pagination-bullet-inactive-color: #D8D8D8;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "GT Pressura";
+  src: url(../fonts/GT-PRESSURA-BOLD.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-weight: 400;
+  src: url(../fonts/GT-PRESSURA-REGULAR.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-weight: 300;
+  src: url(../fonts/GT-PRESSURA-LIGHT.TTF) format("truetype");
+}
+
+/* Utilities */
+
+.d-desktop {
+  display: none;
+}
+
+.d-mobile {
+  display: initial;
+}
+
+/* End of utilities */
+
+html,
+body {
+  font-family: "GT Pressura", "Open Sans", sans-serif;
+  font-style: normal;
+  color: var(--dark-blue);
+}
+
+.main-container {
+  padding: 0;
+  background: #ffffff;
+  max-width: 918px;
+}
+
+.banner {
+  position: relative;
+}
+
+.banner .logo {
+  text-align: center;
+  padding-top: 33px;
+  padding-bottom: 30px;
+}
+
+.banner .main-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 33px;
+  color: var(--dark-green);
+  margin-bottom: 0px;
+}
+
+.banner .sub-title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0px;
+  color: var(--dark-green);
+}
+
+.banner .dropdown {
+  padding: 20px 16px;
+  background-color: var(--dark-green);
+}
+
+.banner .titles-and-figure {
+  padding: 0px 15%;
+}
+
+.legend {
+  padding: 0px;
+}
+
+.legend .labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.legend .label {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 26px;
+  color: var(--dark-green);
+}
+
+.legend .items {
+  display: flex;
+  align-items: center;
+}
+
+.legend .item {
+  flex-grow: 1;
+  height: 17px;
+}
+
+.legend .item:nth-child(1) {
+  background-color: #82B47A;
+  border-radius: 4px 0px 0px 4px;
+}
+
+.legend .item:nth-child(2) {
+  background-color: #8CB976;
+}
+
+.legend .item:nth-child(3) {
+  background-color: #ABC16C;
+}
+
+.legend .item:nth-child(4) {
+  background-color: #C9BB60;
+}
+
+.legend .item:nth-child(5) {
+  background-color: #D28D53;
+}
+
+.legend .item:nth-child(6) {
+  background-color: #DA4D45;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.banner-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.banner-background img {
+  width: 192px;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* Choices */
+.choices {
+  z-index: 2;
+}
+
+.choices__inner {
+  background: #FFFFFF;
+  border: 1px solid #406A73;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.choices.is-open .choices__inner {
+  background: #FFFFFF;
+  border: 1px solid #406A73;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.choices.is-focused .choices__inner {
+  background: #FFFFFF;
+  border: 1px solid #406A73;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.choices__list--dropdown {
+  border: 1px solid #406A73;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  color: var(--dark-green);
+}
+
+.is-open .choices__list--dropdown {
+  border-color: #406A73;
+}
+
+.choices__list .choices__item--disabled {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .d-desktop {
+    display: initial !important;
+  }
+
+  .d-mobile {
+    display: none !important;
+  }
+
+  .banner .dropdown {
+    padding: 22px 12%;
+  }
+
+  .banner .main-title {
+    margin-bottom: 20px;
+  }
+
+  .banner .logo {
+    padding-top: 36px;
+    padding-bottom: 56px;
+  }
+
+  .banner .titles-and-figure {
+    padding: 0px 12% 70px 12%;
+  }
+
+  .banner .figure {
+    padding-right: 32px;
+    text-align: right;
+  }
+
+  .banner .titles {
+    padding-right: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .legend .item {
+    border-radius: 0px !important;
+  }
+
+  .content {
+    padding: 30px 12%;
+  }
+}

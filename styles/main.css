@@ -1,0 +1,16 @@
+@font-face {
+  font-weight: 700;
+  font-family: "GT Pressura";
+  src: url(./GT-Pressura-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-weight: 400;
+  src: url(./GT-PRESSURA-REGULAR.TTF) format("truetype");
+}
+
+body {
+  font-family: 'GT Pressura';
+  color: #324C3D
+}

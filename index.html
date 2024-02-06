@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link href="./styles/choices.css" rel="stylesheet" />
+  <link href="./styles/table.css" rel="stylesheet" />
+  <title>Alternative living spots</title>
+
+
+  <link href="./styles/choices.css" rel="stylesheet" />
+  <link href="./styles/table.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./scripts/tailwind.config.js"></script>
+  <script src="./scripts/choices.min.js"></script>
+  <script src="./scripts/d3.min.js"></script>
+</head>
+
+<body>
+  <div class="mx-auto max-w-[918px] lg:px-20 lg:py-16 px-5 py-5 bg-[#EEF1EF]">
+    <div class="flex lg:flex-row flex-col justify-center items-center gap-2 text-[#324C3D]">
+      <div class="lg:w-1/2 w-full">
+        <h1 class="font-bold lg:w-full w-full lg:text-[64px] text-[48px] leading-[48px] lg:leading-[59px]"> Europe’s Top
+          Alternative <br />
+          Living Spots</h1>
+        <img src="./images/banner.svg" alt='banner' class="lg:hidden block mt-6" />
+        <p class="mt-6 "> We’ve looked at outdoor activities, hiking trails, and vegan/vegetarian
+          restaurants, organic
+          markets,
+          protected land, and outdoor festivals to find the European nations offering the most “bohemian” or natural
+          lifestyles.
+        </p>
+        <div class="mt-3">
+          <div class=" lg:w-[340px] w-full">
+            <select id="countries_sel"></select>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/2 w-full ">
+        <img src="./images/banner.svg" alt='banner' class="lg:block hidden" />
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto max-w-[918px] lg:px-20 lg:py-16 px-5 py-5 text-[#324C3D]">
+
+    <div class="flex justify-between mb-1">
+      <label class="">Lower score</label>
+      <label class="">Higher score</label>
+    </div>
+    <div class="flex w-full">
+      <div class="w-1/4 bg-[#DA4D45] p-2 rounded-l"></div>
+      <div class="w-1/4 bg-[#DA4D45] opacity-50 p-2"></div>
+      <div class="w-1/4 bg-[#E7AA00] opacity-50 p-2"></div>
+      <div class="w-1/4 bg-[#E7AA00] p-2 rounded-r"></div>
+    </div>
+    <div class="lg:mt-10 mt-6">
+      <div id="table" class="mx-auto"></div>
+    </div>
+  </div>
+
+  </div>
+
+
+
+
+  <script src="./scripts/utils.js"></script>
+  <script src="./scripts/table.config.js"></script>
+  <script src="./scripts/DataStore.js"></script>
+  <script src="./scripts/table.js"></script>
+  <script src="./scripts/app.js"></script>
+
+</body>
+
+</html>
