@@ -24,7 +24,7 @@ const isMobile = (mobileBreakdown) => {
   } else if (mobileBreakdown === "md") {
     brWidth = 992;
   }
-  return true
+  return brWidth += viewport
 };
 
 function Table(params) {
@@ -108,7 +108,7 @@ function Table(params) {
 
   function main() {
     setDimensions();
-    store = new DataStore(attrs.data, pageSize)
+    store = new DataStore(attrs.data, 10)
     container = d3.select(attrs.container);
     currentSort = headers.find((d) => d.order);
 
@@ -145,7 +145,6 @@ function Table(params) {
     setTimeout(() => {
       const isItMobile = isMobile(attrs.mobileBreakdown);
       const tableHeaderHeight = attrs.headerHeight;
-
       let tableHeight =
         tableHeaderHeight + attrs.cellHeight * store.currentData.length;
 
@@ -163,7 +162,6 @@ function Table(params) {
           .style("overflow-y", null)
           .style("scroll-behavior", null);
       }
-
       table.style("height", (tableHeight + 10) + "px");
     }, 0);
   }
@@ -389,17 +387,10 @@ function Table(params) {
 
   function sortTableBy(d, animate = true) {
     if (!d.sort) return;
-    if (animate && !isMobile(attrs.mobileBreakdown)) {
-      const shuffled = shuffle(store.currentData.map((d) => d.id));
 
-      tableRow
-        .sort((a, b) => {
-          return shuffled.indexOf(a.id) - shuffled.indexOf(b.id);
-        })
-        .style("top", getTopCoord)
-        .attr("data-index", (_, i) => i);
-    }
 
+    store.sort((a, b) => d.sort(a, b, d.order))
+    updateRows()
     // grey out all icons and clear order property for other headers
     tableHeadCells
       .filter((d) => d.sort)

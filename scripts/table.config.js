@@ -59,7 +59,6 @@ function cellTemplate(d, i, arr) {
 
 function sortFunc(a, b, order) {
   let orderFunc = order == 'asc' ? 'ascending' : 'descending'
-  console.log(b[this.rankProp])
   return d3[orderFunc](a[this.rankProp], b[this.rankProp])
 }
 
