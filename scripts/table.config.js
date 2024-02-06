@@ -33,13 +33,15 @@ function headerTemplate() {
     </button>`;
   });
 }
-
-
 function mainCellTemplate(d) {
   const propName = this.propName;
-  return `<div class="location-box">
+  return `
+
+  <div class="location-box">
     ${d[propName]}
-  </div>`;
+
+  </div>
+  `;
 }
 function cellTemplate(d, i, arr) {
   const propName = this.propName;

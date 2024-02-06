@@ -338,7 +338,6 @@ function Table(params) {
     if (attrs.sortable) {
       tableRow.style("left", "0px").style("top", getTopCoord);
     }
-
     tableRow.each(function (d, i) {
       var that = d3.select(this);
 
@@ -531,12 +530,14 @@ function Table(params) {
     }
   }
 
+
   function highlightRow(predicate) {
     tableRow.classed("highlighted", predicate);
     setTimeout(() => {
       const rowBeingHighlighted = tableRow.filter(predicate);
 
       if (isMobile(attrs.mobileBreakdown)) {
+
 
         if (rowBeingHighlighted.empty() && store.currentData.length < store.all_data.length) {
           // recursively showMore and search for city
