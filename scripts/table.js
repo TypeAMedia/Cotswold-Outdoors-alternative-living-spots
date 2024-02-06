@@ -13,20 +13,18 @@ const getMobileBreakdown = () => {
     return "rest";
   }
 };
-
 const isMobile = (mobileBreakdown) => {
   const viewport = window.innerWidth;
   let brWidth = 576;
 
-  if (mobileBreakdown === "xs") {
-    brWidth = 576;
-  } else if (mobileBreakdown === "sm") {
-    brWidth = 768;
-  } else if (mobileBreakdown === "md") {
-    brWidth = 992;
-  }
-
-  return brWidth >= viewport;
+  // if (mobileBreakdown === "xs") {
+  //   brWidth = 576;
+  // } else if (mobileBreakdown === "sm") {
+  //   brWidth = 768;
+  // } else if (mobileBreakdown === "md") {
+  //   brWidth = 992;
+  // }
+  return true
 };
 
 function Table(params) {
@@ -96,6 +94,15 @@ function Table(params) {
     return d[prop];
   };
 
+  function adjustScrollBar(left) {
+    const tBodyWidth = tBody.node().getBoundingClientRect().width;
+    const p = left / (scrollWidth - firstColumnWidth);
+
+    container
+      .selectAll(".scroll-bar")
+      .style("left", firstColumnWidth + p * tBodyWidth + "px");
+  }
+
   function main() {
     setDimensions();
 
@@ -130,6 +137,51 @@ function Table(params) {
       .style("position", "relative")
 
     drawAll();
+  }
+
+  function adjustHeight() {
+    setTimeout(() => {
+      const isItMobile = isMobile(attrs.mobileBreakdown);
+
+      const tableHeaderHeight = attrs.headerHeight;
+
+      let tableHeight =
+        tableHeaderHeight + attrs.cellHeight * store.currentData.length;
+
+      if (store.currentData.length > 10 && !isItMobile) {
+        tableHeight =
+          tableHeaderHeight +
+          attrs.cellHeight * Math.min(10, store.currentData.length);
+
+        tBody
+          .style("height", attrs.cellHeight * 10 + "px")
+          .style("overflow-y", "auto")
+          .style("scroll-behavior", "smooth");
+      } else {
+        tBody
+          .style("height", null)
+          .style("overflow-y", null)
+          .style("scroll-behavior", null);
+      }
+
+      table.style("height", (tableHeight + 10) + "px");
+    }, 0);
+  }
+
+  function adjustShowBtn() {
+    if (store.onlyOnePage) {
+      showMoreOrLessBtn.style("display", "none");
+    } else {
+      showMoreOrLessBtn.style("display", null);
+      if (store.currentData.length >= store.filtered_data.length) {
+        showMoreOrLessBtn.html("Show less").attr("data-order", "less");
+      } else {
+        showMoreOrLessBtn.html(`<svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.43934 0.43934C1.02513 -0.146447 1.97487 -0.146447 2.56066 0.43934L7.5 5.37868L12.4393 0.43934C13.0251 -0.146447 13.9749 -0.146447 14.5607 0.43934C15.1464 1.02513 15.1464 1.97487 14.5607 2.56066L8.56066 8.56066C7.97487 9.14645 7.02513 9.14645 6.43934 8.56066L0.43934 2.56066C-0.146447 1.97487 -0.146447 1.02513 0.43934 0.43934Z" fill="#100C08"/>
+        </svg>
+        `).attr("data-order", "more");
+      }
+    }
   }
 
   function addScrollBar() {
@@ -182,7 +234,7 @@ function Table(params) {
           tag: "button",
           selector: "show-btn",
         })
-        .attr("class", "show-btn btn")
+        .attr("class", "show-btn text-center flex items-center justify-center my-3 block w-full text-white p-6 rounded-md")
         .attr("data-order", "more")
         .html(smallArrow)
         .on("click", function () {
@@ -383,47 +435,7 @@ function Table(params) {
     if (d.isMainColumn) {
       return firstColumnWidth + "px";
     }
-
     return `calc((100% - ${firstColumnWidth}px) / ${headers.length - 1})`;
-  }
-
-  function adjustHeight() {
-    setTimeout(() => {
-      const isItMobile = isMobile(attrs.mobileBreakdown);
-
-      var tableHeaderHeight = isItMobile ? 149 : 176;
-
-      var tableHeight =
-        tableHeaderHeight + attrs.cellHeight * store.currentData.length;
-
-      if (store.currentData.length > 10 && !isItMobile) {
-        tableHeight =
-          tableHeaderHeight +
-          attrs.cellHeight * Math.min(10, store.currentData.length);
-
-        tBody
-          .style("height", attrs.cellHeight * 10 + "px")
-          .style("overflow-y", "auto")
-          .style("scroll-behavior", "smooth");
-      } else {
-        tBody
-          .style("height", null)
-          .style("overflow-y", null)
-          .style("scroll-behavior", null);
-      }
-
-      table.style("height", tableHeight + "px");
-
-      container
-        .selectAll(".scroll-bar")
-        .style("top", tableHeaderHeight - 8 + "px")
-        .style("left", firstColumnWidth + "px");
-
-      container
-        .selectAll(".scroll-bar-back")
-        .style("top", tableHeaderHeight - 8 + "px")
-        .style("left", firstColumnWidth + "px");
-    }, 0);
   }
 
   function makeItResponsive() {
@@ -443,15 +455,15 @@ function Table(params) {
       table.classed("responsive", true);
 
       tableRow
-        .style("width", w - firstColumnWidth + "px")
+        .style("width", '550px')
         .style("position", "static");
 
-      tableHeader.style("width", w - firstColumnWidth + "px");
+      tableHeader.style("width", '550px')
 
       table
         .selectAll(".main-column")
         .style("position", "absolute")
-        .style("margin-left", -firstColumnWidth + "px");
+        .style("margin-left", -firstColumnWidth + "px")
 
       table.style("margin-left", firstColumnWidth + "px");
 
@@ -502,24 +514,11 @@ function Table(params) {
     }
   }
 
-  function adjustShowBtn() {
-    if (store.onlyOnePage) {
-      showMoreOrLessBtn.style("display", "none");
-    } else {
-      showMoreOrLessBtn.style("display", null);
-      if (store.currentData.length >= store.filtered_data.length) {
-        showMoreOrLessBtn.attr("data-order", "less");
-      } else {
-        showMoreOrLessBtn.attr("data-order", "more");
-      }
-    }
-  }
+
 
   function updateRows() {
     addTableBody();
-
     adjustHeight();
-
     makeItResponsive();
   }
 

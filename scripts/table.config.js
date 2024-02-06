@@ -17,8 +17,7 @@ const triangleUp = `<svg width="11" height="9" viewBox="0 0 11 9" fill="none" xm
 function mainHeaderTemplate() {
   return fakePromise(`
   <div class="loc-header">
-  <div class="triangle">${triangleUp}</div>
-  <div class="label text-[20px] flex items-center justify-center mt-6">${this.name}</div>
+  <div class="label text-[20px] font-bold flex items-center mt-8 ml-2">${this.name}</div>
 </div>`)
 }
 
@@ -34,7 +33,6 @@ function headerTemplate() {
     </button>`;
   });
 }
-
 
 
 function mainCellTemplate(d) {
@@ -54,7 +52,7 @@ function cellTemplate(d, i, arr) {
   const rankCount = arr.filter(x => x[this.rankProp] === rank).length;
   const prefix = (propName === "Overall" && rankCount > 1) ? "=" : "";
 
-  return `<div class="color-box" style="background-color: ${color}; color: ${textColor};">
+  return `<div class="color-box " style="background-color: ${color}; color: ${textColor};">
     ${prefix}${format(d[propName])}
   </div>`;
 }
