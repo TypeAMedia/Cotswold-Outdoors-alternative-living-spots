@@ -18,6 +18,7 @@ class App {
 				),
 				id: '#countries_sel',
 				placeholder: 'Select Country',
+				searchEnabled: true,
 				cb: value => {
 					this.selectRow(value)
 				}
