@@ -17,13 +17,13 @@ const isMobile = (mobileBreakdown) => {
   const viewport = window.innerWidth;
   let brWidth = 576;
 
-  // if (mobileBreakdown === "xs") {
-  //   brWidth = 576;
-  // } else if (mobileBreakdown === "sm") {
-  //   brWidth = 768;
-  // } else if (mobileBreakdown === "md") {
-  //   brWidth = 992;
-  // }
+  if (mobileBreakdown === "xs") {
+    brWidth = 576;
+  } else if (mobileBreakdown === "sm") {
+    brWidth = 768;
+  } else if (mobileBreakdown === "md") {
+    brWidth = 992;
+  }
   return true
 };
 
@@ -34,6 +34,8 @@ function Table(params) {
       container: "body",
       data: [], // all data
       headers: [], // column configs
+      rankedData: [],
+      rankProp: '',
       cellHeight: 54, // height of each cells in table body
       firstColumnWidth: {
         // city column width (varies based on screen size),
@@ -86,6 +88,7 @@ function Table(params) {
     scrollWidth,
     pageSize;
 
+
   const getValue = (d, propName) => {
     let prop = propName;
     if (typeof propName === "function") {
@@ -105,8 +108,7 @@ function Table(params) {
 
   function main() {
     setDimensions();
-
-    store = new DataStore(attrs.data, pageSize);
+    store = new DataStore(attrs.data, pageSize)
     container = d3.select(attrs.container);
     currentSort = headers.find((d) => d.order);
 
@@ -142,7 +144,6 @@ function Table(params) {
   function adjustHeight() {
     setTimeout(() => {
       const isItMobile = isMobile(attrs.mobileBreakdown);
-
       const tableHeaderHeight = attrs.headerHeight;
 
       let tableHeight =
@@ -152,7 +153,6 @@ function Table(params) {
         tableHeight =
           tableHeaderHeight +
           attrs.cellHeight * Math.min(10, store.currentData.length);
-
         tBody
           .style("height", attrs.cellHeight * 10 + "px")
           .style("overflow-y", "auto")
@@ -211,13 +211,11 @@ function Table(params) {
 
   function setDimensions() {
     const br = getMobileBreakdown();
-
     if (isMobile(attrs.mobileBreakdown)) {
       attrs.pagination = true;
     } else {
       attrs.pagination = false;
     }
-
     pageSize = attrs.pagination ? attrs.pageSize[br] : attrs.data.length + 1;
     showNColumnsMobile = attrs.numOfColumnsMobile[br];
     firstColumnWidth = attrs.firstColumnWidth[br];
@@ -234,9 +232,12 @@ function Table(params) {
           tag: "button",
           selector: "show-btn",
         })
-        .attr("class", "show-btn text-center flex items-center justify-center my-3 block w-full text-white p-6 rounded-md")
+        .attr(
+          "class",
+          "show-btn bg-white flex items-center justify-center  block w-full text-white p-6 mt-5 rounded-md"
+        )
         .attr("data-order", "more")
-        .html(smallArrow)
+        .html('TEST')
         .on("click", function () {
           if (store.currentData.length >= store.filtered_data.length) {
             collapse();
@@ -334,9 +335,8 @@ function Table(params) {
     tableRow = tBody.patternify({
       tag: "div",
       selector: "table-row",
-      data: store.currentData,
+      data: store.currentData
     });
-
     if (attrs.sortable) {
       tableRow.style("left", "0px").style("top", getTopCoord);
     }
@@ -389,7 +389,6 @@ function Table(params) {
 
   function sortTableBy(d, animate = true) {
     if (!d.sort) return;
-
     if (animate && !isMobile(attrs.mobileBreakdown)) {
       const shuffled = shuffle(store.currentData.map((d) => d.id));
 
@@ -556,9 +555,8 @@ function Table(params) {
           highlightRow(predicate);
         } else {
           const el = rowBeingHighlighted.node();
-          el.scrollIntoView();
+          el.scrollIntoView()
         }
-
       } else {
         if (!rowBeingHighlighted.empty()) {
           const index = +rowBeingHighlighted.attr("data-index");

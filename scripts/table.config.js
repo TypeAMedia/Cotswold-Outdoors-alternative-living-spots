@@ -26,7 +26,7 @@ function headerTemplate() {
   const icon = this.icon
 
   return loadSvg(icon).then((iconStr) => {
-    return `<button class="header-btn">
+    return `<button class="header-btn sticky">
       <div class="triangle">${triangleUp}</div>
       <div class="icon">${iconStr}</div>
       <div class="label">${name}</div>
@@ -59,15 +59,15 @@ function cellTemplate(d, i, arr) {
 
 function sortFunc(a, b, order) {
   let orderFunc = order == 'asc' ? 'ascending' : 'descending'
-
+  console.log(b[this.rankProp])
   return d3[orderFunc](a[this.rankProp], b[this.rankProp])
 }
 
 const colors = [
-  '#DA4D45',
-  'rgba(218, 77, 69, 0.5)',
-  'rgba(231, 170, 0, 0.5)',
   '#E7AA00',
+  'rgba(231, 170, 0, 0.5)',
+  'rgba(218, 77, 69, 0.5)',
+  '#DA4D45',
 ]
 
 function getHeaders(data) {
@@ -75,6 +75,7 @@ function getHeaders(data) {
     {
       id: 1,
       isMainColumn: true,
+      isFixed: true,
       name: "Order by",
       propName: "country",
       rankProp: "country",
@@ -90,9 +91,9 @@ function getHeaders(data) {
       propName: "overall rank",
       rankProp: "overall rank",
       description: "",
-      order: "asc",
       icon: "./images/icons/overall.svg",
       class: "",
+      order: 'asc',
       infoOrder: 6,
       cellTemplate,
       format: ordinal_suffix_of,

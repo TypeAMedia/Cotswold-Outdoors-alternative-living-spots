@@ -27,6 +27,7 @@ class App {
 				headers: getHeaders(data),
 				container: '#table',
 				data: data,
+				rankProp: 'overall rank',
 				doneHeadersLoading: () => this.attachEventHandlers(),
 			}).render()
 
@@ -42,4 +43,7 @@ class App {
 
 }
 
-new App()
+document.addEventListener('DOMContentLoaded', () => {
+	const app = new App()
+	window.app = app
+})
