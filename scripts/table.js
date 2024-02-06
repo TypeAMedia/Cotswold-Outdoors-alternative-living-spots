@@ -387,10 +387,9 @@ function Table(params) {
 
   function sortTableBy(d, animate = true) {
     if (!d.sort) return;
-
-
     store.sort((a, b) => d.sort(a, b, d.order))
     updateRows()
+
     // grey out all icons and clear order property for other headers
     tableHeadCells
       .filter((d) => d.sort)
@@ -534,7 +533,6 @@ function Table(params) {
 
   function highlightRow(predicate) {
     tableRow.classed("highlighted", predicate);
-
     setTimeout(() => {
       const rowBeingHighlighted = tableRow.filter(predicate);
 
@@ -546,7 +544,7 @@ function Table(params) {
           highlightRow(predicate);
         } else {
           const el = rowBeingHighlighted.node();
-          el.scrollIntoView()
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       } else {
         if (!rowBeingHighlighted.empty()) {
