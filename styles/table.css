@@ -108,17 +108,17 @@
 }
 
 .color-box {
-  width: 100%;
+  width: 54px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 3px;
   font-family: 'GT Pressura';
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 
