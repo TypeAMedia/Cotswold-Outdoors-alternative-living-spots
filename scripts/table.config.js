@@ -17,7 +17,7 @@ const triangleUp = `<svg width="11" height="9" viewBox="0 0 11 9" fill="none" xm
 function mainHeaderTemplate() {
   return fakePromise(`
   <div class="loc-header">
-  <div class="label text-[20px] font-bold flex items-center mt-8 ml-2">${this.name}</div>
+  <div class="label text-[20px] font-bold flex items-center justify-center h-[135px] z-10 bg-[#EEF1EF] rounded-l-lg -mt-[10px]">${this.name}</div>
 </div>`)
 }
 

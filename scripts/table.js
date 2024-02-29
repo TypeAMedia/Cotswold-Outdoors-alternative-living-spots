@@ -121,6 +121,7 @@ function Table(params) {
         adjustScrollBar(this.scrollLeft);
       });
 
+
     tableHeader = table.patternify({
       tag: "div",
       selector: "table-header",

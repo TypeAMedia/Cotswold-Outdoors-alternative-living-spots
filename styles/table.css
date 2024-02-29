@@ -92,10 +92,14 @@
 }
 
 .table-header {
+  /* position: sticky;
+  top: 0;
+  z-index: 10000; */
   display: flex;
-  padding: 20px 3px 10px 3px;
+  padding: 10px 3px 10px 3px;
   background-color: #EEF1EF;
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   margin-bottom: 10px;
 }
 
@@ -190,7 +194,15 @@
 .table-row {
   width: 100%;
   display: flex !important;
-  position: absolute;
+}
+
+.table-body .main-column {
+  z-index: -1;
+}
+
+
+.table-body .main-column .table-data-inner {
+  padding-left: 8px;
 }
 
 .table-grid::-webkit-scrollbar {
